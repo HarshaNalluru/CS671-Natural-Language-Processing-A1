@@ -14,7 +14,7 @@ f.close()
 # pattern = re.compile(r"('(\w| )+[,!?]+' )|('(\w| )+[,!?\\n]+')")
 # pattern = re.compile(r"(')((\w| )+[,!?.;\n]?)('|' )")
 # pattern = re.compile(r"(\n| )(')(([\w,?!;.\-() ][\n]?)*)(')( |\n|;)")
-pattern = re.compile(r"(|\n| )(([\'\"\w,:?!;\-() ][\n]?)*)([\.])( |\n|;)")
+pattern = re.compile(r"(\n| )((Mr\.|\s\w\.\s|[\'\"\w,:;\-() ][\n]?)*)(\w\w\.|[!?])")
 
 # (')([\w,?!;\n']*)(')
 matches = pattern.finditer(message)
@@ -27,12 +27,12 @@ matches = pattern.finditer(message)
 # 		break
 # 	print()
 # 	print("------------------")
-# 	print("=>",match.group(1),"=>",match.group(2),"=>",match.group(4),"=>",match.group(5))
+# 	print("=>",match.group(1),"=>",match.group(2),"=>",match.group(3),"=>",match.group(4))
 # 	print("------------------")
 # 	print()
 # 	count = count + 1
 # print(count)
-substituted = pattern.sub(r'\1<s>\2\4\5</s>',message)
+substituted = pattern.sub(r'\1<s>\2\4</s>',message)
 
 # pattern = re.compile(r"(\n| )(')(([\w,?!;.\-() \"\'][\n]?)*)(')( |\n)")
 # final_substituted = pattern.sub(r'\1"\3"\6',substituted)
@@ -43,9 +43,9 @@ f = open('1.2_output_'+strftime("%Y-%m-%d_%H:%M:%S", gmtime())
 f.write(substituted)
 f.close()
 
-# count = 0
-# for match in matches:
-# 	print(match)
-# 	count = count + 1
+count = 0
+for match in matches:
+	#print(match)
+	count = count + 1
 
-# print(count)
+print(count)
