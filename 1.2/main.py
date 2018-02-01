@@ -14,7 +14,7 @@ f.close()
 # pattern = re.compile(r"('(\w| )+[,!?]+' )|('(\w| )+[,!?\\n]+')")
 # pattern = re.compile(r"(')((\w| )+[,!?.;\n]?)('|' )")
 # pattern = re.compile(r"(\n| )(')(([\w,?!;.\-() ][\n]?)*)(')( |\n|;)")
-pattern = re.compile(r"(\n| )((Mr\.|\s\w\.\s|[\'\"\w,:;\-() ][\n]?)*)(\w\w\.|[!?]|--)")
+pattern = re.compile(r"(\n| )((Mr\.|\s\w\.\s|[\'\"\w,:\-() ][\n]?)*)(\w\w\.|[!?]|--|;)")
 
 # (')([\w,?!;\n']*)(')
 matches = pattern.finditer(message)
