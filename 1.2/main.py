@@ -5,6 +5,7 @@ from time import gmtime, strftime
 #sentence = "This hasn't been much that much of a twist and turn's to 'Tom','Harry' and u know who..yes its 'rock'"
 
 f = open('../test.txt','r')
+# f = open('../fullTest.txt','r')
 message = f.read()
 f.close()
 #print(message)
